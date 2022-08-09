@@ -18,15 +18,14 @@ namespace Play.Catolog.Service.Controllers
     {
 
 
+        private readonly IItemsRepository itemsRepository;
 
-        //private static readonly List<ItemDto> items = new()
-        //{
-        //    new ItemDto(Guid.NewGuid(), "Potion", "Restores a small amount of HP", 5, DateTimeOffset.UtcNow),
-        //    new ItemDto(Guid.NewGuid(), "Antidote", "Cures poison", 7, DateTimeOffset.UtcNow),
-        //    new ItemDto(Guid.NewGuid(), "Bronze sword", "Deals a small amount of damage", 20, DateTimeOffset.UtcNow),
-        //};
 
-        private readonly ItemsRepository itemsRepository = new();
+        public ItemsController(IItemsRepository itemsRepository)
+        {
+            this.itemsRepository = itemsRepository;
+        }
+
 
 
 
@@ -121,6 +120,8 @@ namespace Play.Catolog.Service.Controllers
                 return NotFound();
             }
 
+
+            await itemsRepository.RemoveAsync(Item.Id);
 
             return NoContent();
 

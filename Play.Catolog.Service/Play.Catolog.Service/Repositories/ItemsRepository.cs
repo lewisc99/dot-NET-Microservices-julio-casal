@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace Play.Catolog.Service.Repositories
 {
-    public class ItemsRepository
+    public class ItemsRepository:IItemsRepository
     {
         private const string collectionName = "items"; //collection name 
         private readonly IMongoCollection<Item> dbCollection;
         private readonly FilterDefinitionBuilder<Item> filterBuilder = Builders<Item>.Filter;
         
 
-        public ItemsRepository()
+        public ItemsRepository(IMongoDatabase database)
         {
-            var mongoClient = new MongoClient("mongodb://localhost:27017"); //mongo port
-            var database = mongoClient.GetDatabase("Catalog"); //name of database
+            //var mongoClient = new MongoClient("mongodb://localhost:27017"); //mongo port
+            //var database = mongoClient.GetDatabase("Catalog"); //name of database
+
             dbCollection = database.GetCollection<Item>(collectionName); //collection like table of database
         }
 

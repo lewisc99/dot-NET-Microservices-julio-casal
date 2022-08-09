@@ -7,6 +7,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
+using MongoDB.Driver;
+using Play.Catolog.Service.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +21,9 @@ namespace Play.Catolog.Service
 {
     public class Startup
     {
+
+        private ServiceSettings serviceSettings;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,7 +35,34 @@ namespace Play.Catolog.Service
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+
+            BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+            BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
+
+
+            serviceSettings = Configuration.GetSection(nameof(serviceSettings)).Get<ServiceSettings>();
+
+
+            //and that's it so with this uh with this section we have defined a singleton object that represents a an
+            //mongo database that's going to be injected as remember into um items repository over here is going to
+            //be landing over here i'm on the database so here's where we're constructing and registering it with the service
+            /// container and then one more thing that we need here is to uh also in register
+           
+            services.AddSingleton(ServiceProvider =>
+            {
+                var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+                var mongoClient = new MongoClient(mongoDbSettings.ConnectionString);
+                return mongoClient.GetDatabase(serviceSettings.ServiceName);
+            });
+
+
+            services.AddControllers(options =>
+            {
+                options.SuppressAsyncSuffixInActionNames = false;
+            });
+
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Play.Catolog.Service", Version = "v1" });
