@@ -11,6 +11,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
+using Play.Catolog.Service.Repositories;
 using Play.Catolog.Service.Settings;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,11 @@ namespace Play.Catolog.Service
                 var mongoClient = new MongoClient(mongoDbSettings.ConnectionString);
                 return mongoClient.GetDatabase(serviceSettings.ServiceName);
             });
+
+
+
+            services.AddSingleton<IItemsRepository, ItemsRepository>();
+
 
 
             services.AddControllers(options =>
