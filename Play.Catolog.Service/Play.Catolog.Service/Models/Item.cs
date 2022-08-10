@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Play.Catolog.Service.Models
 {
-    public class Item
+    public class Item : IEntity
     {
 
         public Guid Id { get; set; }

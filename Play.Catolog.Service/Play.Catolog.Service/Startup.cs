@@ -11,6 +11,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
+using Play.Catolog.Service.Models;
 using Play.Catolog.Service.Repositories;
 using Play.Catolog.Service.Settings;
 using System;
@@ -58,7 +59,14 @@ namespace Play.Catolog.Service
 
 
 
-            services.AddSingleton<IItemsRepository, ItemsRepository>();
+            services.AddSingleton<IRepository<Item>>(serviceProvider =>
+            {
+                //anytime you need to get a instance of a service already registered in the service container
+                //just need to call get service (service provider).
+                var database = serviceProvider.GetService<IMongoDatabase>();
+                return new MongoRepository<Item>(database, "items");
+
+            });
 
 
 

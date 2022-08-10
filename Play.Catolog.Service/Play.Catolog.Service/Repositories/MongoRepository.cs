@@ -7,39 +7,41 @@ using System.Threading.Tasks;
 
 namespace Play.Catolog.Service.Repositories
 {
-    public class ItemsRepository:IItemsRepository
+    public class MongoRepository<T>:IRepository<T> where T : IEntity
     {
-        private const string collectionName = "items"; //collection name 
-        private readonly IMongoCollection<Item> dbCollection;
-        private readonly FilterDefinitionBuilder<Item> filterBuilder = Builders<Item>.Filter;
+      //  private const string collectionName = "items"; //collection name 
+
+
+        private readonly IMongoCollection<T> dbCollection;
+        private readonly FilterDefinitionBuilder<T> filterBuilder = Builders<T>.Filter;
         
 
-        public ItemsRepository(IMongoDatabase database)
+        public MongoRepository(IMongoDatabase database, string collectionName)
         {
             //var mongoClient = new MongoClient("mongodb://localhost:27017"); //mongo port
             //var database = mongoClient.GetDatabase("Catalog"); //name of database
 
-            dbCollection = database.GetCollection<Item>(collectionName); //collection like table of database
+            dbCollection = database.GetCollection<T>(collectionName); //collection like table of database
         }
 
 
         //should only be read can't be modified
-        public async Task<IReadOnlyCollection<Item>> GetAllAsync()
+        public async Task<IReadOnlyCollection<T>> GetAllAsync()
         {
           
             return await dbCollection.Find(filterBuilder.Empty).ToListAsync(); // get all items
 
         }
 
-        public async Task<Item> GetAsync(Guid id)
+        public async Task<T> GetAsync(Guid id)
         {
-            FilterDefinition<Item> filter = filterBuilder.Eq(entity => entity.Id, id); //get by id
+            FilterDefinition<T> filter = filterBuilder.Eq(entity => entity.Id, id); //get by id
 
             return await dbCollection.Find(filter).FirstOrDefaultAsync();
         }
 
         
-        public async Task CreateAsync(Item entity)
+        public async Task CreateAsync(T entity)
         {
             if (entity == null)
             {
@@ -49,7 +51,7 @@ namespace Play.Catolog.Service.Repositories
             await dbCollection.InsertOneAsync(entity);
         }
 
-        public async Task UpdateAsync(Item entity)
+        public async Task UpdateAsync(T entity)
         {
             if (entity == null)
             {
@@ -57,7 +59,7 @@ namespace Play.Catolog.Service.Repositories
             }
 
 
-            FilterDefinition<Item> filter = filterBuilder.Eq(existingEntity => existingEntity.Id, entity.Id);
+            FilterDefinition<T> filter = filterBuilder.Eq(existingEntity => existingEntity.Id, entity.Id);
             await dbCollection.ReplaceOneAsync(filter, entity);
 
 
@@ -66,7 +68,7 @@ namespace Play.Catolog.Service.Repositories
 
         public async Task RemoveAsync(Guid id)
         {
-            FilterDefinition<Item> filter = filterBuilder.Eq(existingEntity => existingEntity.Id, id);
+            FilterDefinition<T> filter = filterBuilder.Eq(existingEntity => existingEntity.Id, id);
 
             await dbCollection.DeleteOneAsync(filter);
 
