@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Play.Catolog.Service.Models;
 using Play.Catolog.Service.Models.Dtos;
-using Play.Catolog.Service.Repositories;
+using Play.Common;
+//using Play.Catolog.Service.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

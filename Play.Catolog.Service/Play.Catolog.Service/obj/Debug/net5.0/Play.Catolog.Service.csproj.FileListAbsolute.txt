@@ -43,3 +43,10 @@ D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.
 D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Catolog.Service\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
 D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Catolog.Service\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
 D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Catolog.Service\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Catolog.Service\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Catolog.Service\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Catolog.Service\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Catolog.Service\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Catolog.Service\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Catolog.Service\bin\Debug\net5.0\Play.Common.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Catolog.Service\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

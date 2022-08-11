@@ -28,6 +28,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\arquivos\\programation\\workspace-c#\\month 8\\1- microservice frecodecamps\\Play.Catolog.Service\\packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,9 +47,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "MongoDB.Driver": {
+            "Play.Common": {
               "target": "Package",
-              "version": "[2.17.1, )"
+              "version": "[1.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

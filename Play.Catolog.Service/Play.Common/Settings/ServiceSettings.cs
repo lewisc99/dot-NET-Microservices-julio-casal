@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Play.Catolog.Service.Models
+namespace Play.Common.Settings
 {
-    public class IEntity
+    public class ServiceSettings
     {
-        public Guid Id { get; set; }
+        public string ServiceName { get; init; }
 
-        
     }
 }

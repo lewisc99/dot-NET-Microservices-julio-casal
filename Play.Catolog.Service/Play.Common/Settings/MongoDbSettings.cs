@@ -1,6 +1,6 @@
 ﻿
 
-namespace Play.Catolog.Service.Settings
+namespace Play.Common.Settings
 {
     public class MongoDbSettings
     {
