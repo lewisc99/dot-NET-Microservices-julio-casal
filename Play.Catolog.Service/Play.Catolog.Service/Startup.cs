@@ -38,35 +38,13 @@ namespace Play.Catolog.Service
         {
 
 
-            BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
-            BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
 
+            serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
 
-            serviceSettings = Configuration.GetSection(nameof(serviceSettings)).Get<ServiceSettings>();
+            services.AddMongo()
+                .AddMongoRepository<Item>("items");
 
-
-            //and that's it so with this uh with this section we have defined a singleton object that represents a an
-            //mongo database that's going to be injected as remember into um items repository over here is going to
-            //be landing over here i'm on the database so here's where we're constructing and registering it with the service
-            /// container and then one more thing that we need here is to uh also in register
            
-            services.AddSingleton(ServiceProvider =>
-            {
-                var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
-                var mongoClient = new MongoClient(mongoDbSettings.ConnectionString);
-                return mongoClient.GetDatabase(serviceSettings.ServiceName);
-            });
-
-
-
-            services.AddSingleton<IRepository<Item>>(serviceProvider =>
-            {
-                //anytime you need to get a instance of a service already registered in the service container
-                //just need to call get service (service provider).
-                var database = serviceProvider.GetService<IMongoDatabase>();
-                return new MongoRepository<Item>(database, "items");
-
-            });
 
 
 
