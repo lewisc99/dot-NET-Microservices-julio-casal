@@ -11,6 +11,7 @@ using Play.Common.MongoDB;
 using Play.Inventory.Service.Clients;
 using Play.Inventory.Service.Entities;
 using Polly;
+using Polly.Timeout;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,13 +36,41 @@ namespace Play.Inventory.Service
             services.AddMongo()
                 .AddMongoRepository< InventoryItem>("inventoryitems");
 
+            Random jitterer = new Random();
 
 
             //to register catalog client
             services.AddHttpClient<CatalogClient>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:44377");
-            }).AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(2)); //handle errror
+
+                //add transient Http Error policy handle network failures 
+                //handle http 5XX status code (server errros)
+                //handle 408 status code (request timeout)
+
+                //we specify the exception that will be coming out of the timeout of the timeout async call over
+            }).AddTransientHttpErrorPolicy(builder => builder.Or<TimeoutRejectedException>().WaitAndRetryAsync(
+                //first parameter is going to be the retry count
+                //how many times we want to retry in the presence of transient error failures
+                    5, //how many times to wait to each retry
+                    retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
+                    + TimeSpan.FromMilliseconds(jitterer.Next(0,1000)),
+
+
+
+                    //not necessary this parameter
+                    //it's works to if you want to don't want to see what's going on behind the scenes
+                    //what we're going to do is to as an instance of the service provider
+                    onRetry: (outcome, timespan, retryAttemp) =>
+                    {
+                        var serviceProvider = services.BuildServiceProvider();
+                        serviceProvider.GetService<ILogger<CatalogClient>>()?
+                        .LogWarning($"Delaying for {timespan.TotalSeconds} seconds, then making retry {retryAttemp}");
+
+
+                    }
+                ))
+            .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(2)); //handle errror
             //you're saying that anytime we invoke anything under locahost 444377 we're going to wait at much
             //one second before giving up.
 
