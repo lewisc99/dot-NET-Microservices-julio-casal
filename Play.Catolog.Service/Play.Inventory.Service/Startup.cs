@@ -50,11 +50,11 @@ namespace Play.Inventory.Service
 
                 //we specify the exception that will be coming out of the timeout of the timeout async call over
             }).AddTransientHttpErrorPolicy(builder => builder.Or<TimeoutRejectedException>().WaitAndRetryAsync(
-                //first parameter is going to be the retry count
-                //how many times we want to retry in the presence of transient error failures
+                    //first parameter is going to be the retry count
+                    //how many times we want to retry in the presence of transient error failures
                     5, //how many times to wait to each retry
                     retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
-                    + TimeSpan.FromMilliseconds(jitterer.Next(0,1000)),
+                    + TimeSpan.FromMilliseconds(jitterer.Next(0, 1000)),
 
 
 
@@ -70,6 +70,38 @@ namespace Play.Inventory.Service
 
                     }
                 ))
+            //to add circuit breaker
+            .AddTransientHttpErrorPolicy(
+                builder => builder.Or<TimeoutRejectedException>().CircuitBreakerAsync(
+                    //first parameter is 3  means =  going to be three so three failed requests are going to are going to go
+                    //through the circuit breaker before the secret breaker actually notices that yeah there's a problem and we have to open the circuit
+
+                    //second parameter is the duration
+
+                    //third paramweter onBreak: means =  functions here to get an insight of what's going onbehind the scenes
+
+
+                    3,
+                    TimeSpan.FromSeconds(15), // it's going to wait 15 seconds uh before allowing any new request toactuallly try to reach the other end
+
+                    // then we have functions to
+                    //lock what's happening when the secret opens and when the circuit closes 
+                    
+                    onBreak: (outcome,timespan) =>
+                    {
+                        var serviceProvider = services.BuildServiceProvider();
+                        serviceProvider.GetService<ILogger<CatalogClient>>()?
+                        .LogWarning($"Opening the circuit for {timespan.TotalSeconds} seconds");
+
+                    },
+                    onReset: () =>
+                    {
+                        var serviceProvider = services.BuildServiceProvider();
+                        serviceProvider.GetService<ILogger<CatalogClient>>()?
+                        .LogWarning($"Closing the circuit...");
+                    }
+
+             ))
             .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(2)); //handle errror
             //you're saying that anytime we invoke anything under locahost 444377 we're going to wait at much
             //one second before giving up.
