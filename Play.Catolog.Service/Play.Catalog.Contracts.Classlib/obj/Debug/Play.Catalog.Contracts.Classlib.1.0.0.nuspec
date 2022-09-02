@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Play.Catalog.Contracts.Classlib</id>
+    <version>1.0.0</version>
+    <authors>Play.Catalog.Contracts.Classlib</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net5.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\play.catalog.contracts.classlib\bin\Debug\net5.0\Play.Catalog.Contracts.Classlib.dll" target="lib\net5.0\Play.Catalog.Contracts.Classlib.dll" />
+  </files>
+</package>

@@ -34,7 +34,6 @@ D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.
 D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
 D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
 D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
-D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\obj\Debug\net5.0\Play.Inventory.Service.csprojAssemblyReference.cache
 D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\obj\Debug\net5.0\Play.Inventory.Service.GeneratedMSBuildEditorConfig.editorconfig
 D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\obj\Debug\net5.0\Play.Inventory.Service.AssemblyInfoInputs.cache
 D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\obj\Debug\net5.0\Play.Inventory.Service.AssemblyInfo.cs
@@ -58,3 +57,18 @@ D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.
 D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\Polly.dll
 D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\Polly.Extensions.Http.dll
 D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\obj\Debug\net5.0\Play.Inventory.Service.csprojAssemblyReference.cache
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\Automatonymous.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\GreenPipes.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\MassTransit.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\MassTransit.AspNetCoreIntegration.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\MassTransit.ExtensionsDependencyInjectionIntegration.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\MassTransit.RabbitMqTransport.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\NewId.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\RabbitMQ.Client.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\System.Text.Json.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\Play.Catalog.Contracts.Classlib.dll
+D:\arquivos\programation\workspace-c#\month 8\1- microservice frecodecamps\Play.Catolog.Service\Play.Inventory.Service\bin\Debug\net5.0\Play.Catalog.Contracts.Classlib.pdb

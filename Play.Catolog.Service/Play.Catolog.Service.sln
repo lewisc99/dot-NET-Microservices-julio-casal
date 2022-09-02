@@ -12,7 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Play.Infra", "Play.Infra", 
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play.Inventory.Service", "Play.Inventory.Service\Play.Inventory.Service.csproj", "{443080A3-AAA4-4063-862B-2334CE059AEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Play.Inventory.Service", "Play.Inventory.Service\Play.Inventory.Service.csproj", "{443080A3-AAA4-4063-862B-2334CE059AEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play.Catalog.Contracts.Classlib", "Play.Catalog.Contracts.Classlib\Play.Catalog.Contracts.Classlib.csproj", "{27B947A1-3877-4D42-9278-4CEB431C3A90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,17 +23,18 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{96CD6DFD-0BB3-4FC9-B64A-FF670197CC81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96CD6DFD-0BB3-4FC9-B64A-FF670197CC81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96CD6DFD-0BB3-4FC9-B64A-FF670197CC81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96CD6DFD-0BB3-4FC9-B64A-FF670197CC81}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AB747F05-B9D5-4C30-BBFC-3F0C26965821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB747F05-B9D5-4C30-BBFC-3F0C26965821}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB747F05-B9D5-4C30-BBFC-3F0C26965821}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB747F05-B9D5-4C30-BBFC-3F0C26965821}.Release|Any CPU.Build.0 = Release|Any CPU
 		{443080A3-AAA4-4063-862B-2334CE059AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{443080A3-AAA4-4063-862B-2334CE059AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{443080A3-AAA4-4063-862B-2334CE059AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{443080A3-AAA4-4063-862B-2334CE059AEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27B947A1-3877-4D42-9278-4CEB431C3A90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27B947A1-3877-4D42-9278-4CEB431C3A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27B947A1-3877-4D42-9278-4CEB431C3A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27B947A1-3877-4D42-9278-4CEB431C3A90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
